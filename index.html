@@ -225,13 +225,17 @@
               <input id="inputTitle" placeholder="Idea title (short)" required style="margin-top:10px"/>
               <input id="inputTags" placeholder="Tags (comma separated) e.g. EdTech,Voice,Low-bandwidth" style="margin-top:10px"/>
               <textarea id="inputDesc" placeholder="Describe the idea (one paragraph)" required style="margin-top:10px"></textarea>
-              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
-                <label style="display:flex;align-items:center;gap:8px;font-weight:700"><input type="checkbox" id="publishNow"/> Publish publicly</label>
-                <div style="display:flex;gap:8px">
-                  <button type="button" class="btn btn-ghost" id="seedExamples">Seed Examples</button>
-                  <button type="submit" class="btn btn-primary">Post & Get Match</button>
-                </div>
-              </div>
+            <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+    <label style="display:flex;align-items:center;gap:8px;font-weight:700">
+        <input type="checkbox" id="publishNow" required/> <!-- Added 'required' attribute here -->
+        Publish publicly
+    </label>
+    <div style="display:flex;gap:8px">
+        <button type="button" class="btn btn-ghost" id="seedExamples">Seed Examples</button>
+        <button type="submit" class="btn btn-primary">Post & Get Match</button>
+    </div>
+</div>
+
             </form>
           </div>
         </div>
