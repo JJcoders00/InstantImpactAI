@@ -7,6 +7,8 @@
 <meta name="description" content="Instant Impact AI — post ideas, find partners & turn ideas into action. Designed for young innovators." />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.ico" type="logo.png">
+
 <style>
   :root{
     --saffron: #FF7A18;
@@ -39,6 +41,36 @@
   nav{display:flex;gap:14px;align-items:center}
   nav a{font-weight:700;color:rgba(255,255,255,0.9);padding:6px 10px;border-radius:10px}
   nav a:hover{background:rgba(255,255,255,0.02)}
+  .logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.logo-img {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 0 8px rgba(255,255,255,0.2);
+  transition: all 0.3s ease;
+  animation: softGlow 4s infinite ease-in-out;
+}
+
+.logo-img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 18px rgba(255,153,51,0.4);
+}
+
+@keyframes softGlow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(19,136,8,0.25);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255,153,51,0.35);
+  }
+}
+
   /* hero */
   .hero{display:flex;gap:28px;align-items:center;padding:44px 0}
   .hero-left{flex:1;min-width:260px}
@@ -108,7 +140,10 @@
   <div class="wrap">
     <header role="banner" aria-label="Instant Impact AI header">
       <div class="brand">
-        <div class="logo">IIAI <span class="tiny muted">• Instant Impact AI</span></div>
+        <div class="logo">
+          <img src="logo.jpg" alt="IIAI Logo" class="logo-img">
+          <span>IIAI <span class="tiny muted">• Instant Impact AI</span></span>
+        </div>
         <div class="flag" aria-hidden="true"><i class="s"></i><i class="w"></i><i class="g"></i></div>
       </div>
       <nav role="navigation" aria-label="Main navigation">
