@@ -1,0 +1,659 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Instant Impact AI — JJ Coders</title>
+<meta name="description" content="Instant Impact AI — post ideas, find partners & turn ideas into action. Designed for young innovators." />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --saffron: #FF7A18;
+    --white: #ffffff;
+    --green: #008A3A;
+    --bg-dark: #071227;
+    --glass: rgba(255,255,255,0.04);
+    --muted: rgba(255,255,255,0.75);
+    --card: rgba(255,255,255,0.03);
+    --radius: 14px;
+    --maxw: 1200px;
+    --accent-gradient: linear-gradient(90deg,var(--saffron),#FFB36B,var(--green));
+    --glass-2: rgba(255,255,255,0.02);
+    --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
+    --ff: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;background:linear-gradient(180deg,var(--bg-dark) 0%, #041021 100%);font-family:var(--ff);color:#eaf6ff;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  .wrap{width:94%;max-width:var(--maxw);margin:0 auto;padding:20px 0}
+  /* header */
+  header{position:sticky;top:12px;z-index:30;background:linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));backdrop-filter:blur(6px);border-radius:12px;padding:12px 16px;display:flex;align-items:center;justify-content:space-between}
+  .brand{display:flex;align-items:center;gap:12px}
+  .logo{font-weight:900;font-size:18px;letter-spacing:0.6px}
+  .flag{display:flex;gap:4px;align-items:center}
+  .flag > i{width:12px;height:8px;border-radius:2px;display:inline-block}
+  .flag .s{background:var(--saffron)}
+  .flag .w{background:#fff}
+  .flag .g{background:var(--green)}
+  nav{display:flex;gap:14px;align-items:center}
+  nav a{font-weight:700;color:rgba(255,255,255,0.9);padding:6px 10px;border-radius:10px}
+  nav a:hover{background:rgba(255,255,255,0.02)}
+  /* hero */
+  .hero{display:flex;gap:28px;align-items:center;padding:44px 0}
+  .hero-left{flex:1;min-width:260px}
+  h1.title{font-size:46px;line-height:1.02;margin:0 0 12px;background:var(--accent-gradient);-webkit-background-clip:text;color:transparent;font-weight:900}
+  p.lead{color:rgba(230,240,255,0.9);margin:0 0 18px;max-width:720px}
+  .cta{display:flex;gap:12px}
+  .btn{padding:12px 16px;border-radius:12px;border:0;cursor:pointer;font-weight:800;font-size:14px}
+  .btn-primary{background:var(--accent-gradient);color:#071227;box-shadow:0 12px 40px rgba(2,8,23,0.6)}
+  .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--white)}
+  .pills{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+  .pill{background:var(--glass);padding:6px 10px;border-radius:999px;font-weight:700;font-size:13px;color:var(--white)}
+  /* hero-right visual */
+  .hero-right{flex:1;position:relative;min-height:360px;display:flex;align-items:center;justify-content:center}
+  .bg-shape{position:absolute;inset:0;border-radius:20px;filter:blur(36px);opacity:0.9;background:linear-gradient(135deg, rgba(255,122,24,0.12), rgba(0,150,94,0.08))}
+  .card-hero{position:relative;background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:16px;box-shadow:0 30px 60px rgba(0,0,0,0.6);width:360px;z-index:2}
+  .card-hero h4{margin:0 0 6px}
+  .sample-tags{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+  .tag{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:999px;font-weight:700;font-size:12px}
+  /* layout sections */
+  section{padding:48px 0}
+  .row{display:flex;gap:28px;align-items:flex-start}
+  .col{flex:1}
+  .box{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:18px;border-radius:12px;box-shadow:0 18px 40px rgba(0,0,0,0.5)}
+  h2.section-title{margin:0 0 12px}
+  .muted{color:rgba(255,255,255,0.75)}
+  /* journey svg */
+  .journey{max-width:720px;width:100%;height:360px}
+  /* demo & submit */
+  .grid-2{display:grid;grid-template-columns:1fr 420px;gap:20px}
+  @media(max-width:980px){ .grid-2{grid-template-columns:1fr} nav{display:none} .hero{flex-direction:column} }
+  input,textarea,select{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px;border-radius:10px;color:#eaf6ff;font-size:14px;width:100%}
+  textarea{min-height:120px;resize:vertical}
+  .ideas-list{margin-top:12px;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px}
+  .idea{background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));padding:12px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,0.6);transition:transform .18s ease,box-shadow .18s ease;cursor:default}
+  .idea:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,0.7)}
+  .idea h4{margin:0 0 6px}
+  .meta{font-size:13px;color:rgba(255,255,255,0.75);display:flex;gap:8px;align-items:center}
+  .score{font-weight:800;color:var(--saffron)}
+  .actions{display:flex;gap:8px;margin-top:10px}
+  .small{font-size:13px;color:rgba(255,255,255,0.7)}
+  .badge{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-weight:800}
+  .filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+  .chip{background:transparent;border:1px solid rgba(255,255,255,0.04);padding:8px 10px;border-radius:999px;cursor:pointer}
+  .chip.active{background:var(--accent-gradient);color:#071227}
+  /* match area */
+  .match-area{margin-top:10px}
+  .match-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));padding:10px;border-radius:10px;border:1px solid rgba(255,255,255,0.02)}
+  .executor{display:flex;align-items:center;gap:12px}
+  .avatar{width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,var(--saffron),var(--green));display:flex;align-items:center;justify-content:center;font-weight:900;color:#071227}
+  .request-btn{background:var(--accent-gradient);padding:8px 10px;border-radius:10px;border:0;color:#071227;font-weight:800;cursor:pointer}
+  /* footer */
+  footer{padding:30px 0;text-align:center;color:rgba(255,255,255,0.65);border-top:1px solid rgba(255,255,255,0.02);margin-top:20px}
+  /* reveal animations */
+  .reveal{opacity:0;transform:translateY(18px);transition:all .6s cubic-bezier(.2,.9,.2,1)}
+  .reveal.visible{opacity:1;transform:none}
+  /* micro UX */
+  .tiny{font-size:12px;color:rgba(255,255,255,0.65)}
+  .note{background:linear-gradient(90deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));padding:8px;border-radius:8px}
+  .oldsite {
+    color: orange;
+    font-weight: 700;
+
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header role="banner" aria-label="Instant Impact AI header">
+      <div class="brand">
+        <div class="logo">IIAI <span class="tiny muted">• Instant Impact AI</span></div>
+        <div class="flag" aria-hidden="true"><i class="s"></i><i class="w"></i><i class="g"></i></div>
+      </div>
+      <nav role="navigation" aria-label="Main navigation">
+        <a href="#how">How</a>
+        <a href="#demo">Demo</a>
+        <a href="#submit">Submit</a>
+      </nav>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero" id="top">
+      <div class="hero-left reveal">
+        <h1 class="title">Turn ideas into <span style="background:var(--accent-gradient);-webkit-background-clip:text;background-clip:text;color:transparent">Instant Impact</span></h1>
+        <p class="lead">Post an idea — IIAI finds the right people to build it. Everyone can join, including under-18 creators. Use the site on phone or laptop.</p>
+        <div class="cta">
+          <button class="btn btn-primary" id="btnPost">Post Your Idea</button>
+          <button class="btn btn-ghost" id="btnExplore">Find Ideas</button>
+        </div>
+        <div class="pills">
+          <div class="pill">No signup required</div>
+          <div class="pill">Local-first & privacy-friendly</div>
+          <div class="pill">Under-18 friendly</div>
+        </div>
+      </div>
+
+      <div class="hero-right reveal" aria-hidden="true">
+        <div class="bg-shape"></div>
+        <div class="card-hero">
+          <h4>Example: Voice Tutor for Feature Phones</h4>
+          <p class="muted">Low-data voice lessons in local languages to teach reading — works on simple phones.</p>
+          <div class="sample-tags">
+            <div class="tag">EdTech</div><div class="tag">Voice</div><div class="tag">Low-bandwidth</div>
+          </div>
+          <div style="margin-top:10px;color:var(--green);font-weight:800">Suggested: EdTech Designer • Voice Engineer • Content Creator</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW / STORY -->
+    <section id="how" class="reveal">
+      <div class="row">
+        <div class="col">
+          <h2 class="section-title">How Instant Impact AI works</h2>
+          <p class="muted">IIAI analyzes ideas and instantly maps them to the right roles, resources and first steps — so great ideas don't sit unused.</p>
+          <ol class="muted">
+            <li><strong>Describe:</strong> Post a clear idea and your skills or age.</li>
+            <li><strong>Match:</strong> The platform identifies people and roles to build it.</li>
+            <li><strong>Partner:</strong> Request to collaborate — under-18s can join with guardian consent/notice.</li>
+            <li><strong>Launch:</strong> Build a pilot, measure impact, and scale.</li>
+          </ol>
+          <p class="tiny">Note: For the Summit, you can present this as a working demo — ideas are saved locally and matching is deterministic and auditable.</p>
+        </div>
+        <div class="col">
+          <svg class="journey" viewBox="0 0 900 560" aria-hidden="true">
+            <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0%" stop-color="#ff7a18"/><stop offset="100%" stop-color="#008A3A"/></linearGradient></defs>
+            <path id="path" d="M50 500 C180 420 260 260 380 310 C500 360 620 200 830 120" stroke="url(#g)" stroke-width="6" fill="none" stroke-linecap="round"/>
+            <circle id="marker" cx="50" cy="500" r="12" fill="#fff" stroke="#ff7a18" stroke-width="4"></circle>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- DEMO / MATCH + EXECUTOR PANEL -->
+    <section id="demo" class="reveal">
+      <div class="grid-2">
+        <div>
+          <div class="box">
+            <h3>Try Instant Match</h3>
+            <p class="muted">Type one-line idea or paste description — see instantly suggested roles, first steps and resources.</p>
+            <div style="display:flex;gap:8px;margin-top:12px">
+              <input id="quickIdea" placeholder="e.g. 'offline voice tutor for rural students'"/>
+              <button class="btn btn-primary" id="quickMatchBtn">Match</button>
+            </div>
+            <div id="quickResult" style="margin-top:12px"></div>
+          </div>
+
+          <div style="height:18px"></div>
+
+          <div class="box" style="margin-top:12px">
+            <h4>Apply as Executor (show ideas matched to you)</h4>
+            <p class="muted">Enter your name and skills — II AI will surface ideas you can help build.</p>
+            <div style="display:flex;gap:8px;margin-top:8px">
+              <input id="execName" placeholder="Your name"/>
+              <input id="execSkills" placeholder="Skills (comma separated) e.g. Web,AI,EdTech"/>
+              <button class="btn btn-ghost" id="execApply">Show Matches</button>
+            </div>
+            <div id="execMatches" style="margin-top:12px"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="box">
+            <h3>Seed Executors (sample)</h3>
+            <p class="muted tiny">These are seeded people who can execute ideas — the platform will match ideas to them.</p>
+            <div id="executorsList" style="margin-top:12px"></div>
+            <div style="margin-top:12px" class="tiny muted">You can add your own executor profile in Deploy stage or via settings (future).</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUBMIT / POST IDEA -->
+    <section id="submit" class="reveal">
+      <div class="row">
+        <div class="col">
+          <div class="box">
+            <h2>Post an idea — get matched</h2>
+            <p class="muted">Anyone can post. Under-18 creators are welcome (we display a guardian reminder when someone under 18 requests to partner).</p>
+            <form id="ideaForm" aria-label="Post idea form">
+              <div style="display:flex;gap:8px;">
+                <input id="inputName" placeholder="Your name or nickname"/>
+                <input id="inputAge" placeholder="Age (optional)" inputmode="numeric" style="width:120px"/>
+              </div>
+              <input id="inputTitle" placeholder="Idea title (short)" required style="margin-top:10px"/>
+              <input id="inputTags" placeholder="Tags (comma separated) e.g. EdTech,Voice,Low-bandwidth" style="margin-top:10px"/>
+              <textarea id="inputDesc" placeholder="Describe the idea (one paragraph)" required style="margin-top:10px"></textarea>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-top:12px">
+                <label style="display:flex;align-items:center;gap:8px;font-weight:700"><input type="checkbox" id="publishNow"/> Publish publicly</label>
+                <div style="display:flex;gap:8px">
+                  <button type="button" class="btn btn-ghost" id="seedExamples">Seed Examples</button>
+                  <button type="submit" class="btn btn-primary">Post & Get Match</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="col">
+          <div class="box">
+            <h3>Ideas Feed</h3>
+            <div style="margin-top:8px;display:flex;align-items:center;justify-content:space-between">
+              <div class="filters">
+                <input id="searchBox" placeholder="Search title or description" style="padding:8px;border-radius:999px;border:1px solid rgba(255,255,255,0.04)"/>
+                <button class="chip" id="filterAll">All</button>
+                <button class="chip" id="filterTop">Trending</button>
+              </div>
+              <div class="small muted">Saved locally</div>
+            </div>
+            <div id="ideasContainer" style="margin-top:12px"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      © 2025 Instant Impact AI — JJ Coders · Built by JJ Coders. <span class="tiny">For minors: always follow guardian consent and local rules when collaborating.</span>
+      <div class="oldsite">
+        <a href="oldindex.html">Click to view our old IIAI site.</a>
+      </div>
+    </footer>
+  </div>
+
+<script>
+/* ===========================================================
+   Instant Impact AI — Single-file static implementation
+   - Stores data in localStorage
+   - Deterministic, explainable matching algorithm
+   - Allows posting, browsing, filtering, requesting partnership
+   - Executors seeded; visitors can apply as executor and see matches
+   =========================================================== */
+
+/* ----------------- Utilities ----------------- */
+const $ = sel => document.querySelector(sel);
+const $$ = sel => Array.from(document.querySelectorAll(sel));
+const uid = (p='id') => p + '_' + Date.now() + '_' + Math.floor(Math.random()*999);
+const esc = s => String(s || '').replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+
+/* ----------------- Local Storage Keys ----------------- */
+const LS_IDEAS = 'iiai_ideas_v2';
+const LS_EXEC = 'iiai_executors_v2';
+const LS_REQUESTS = 'iiai_requests_v2';
+
+/* ----------------- Seed Data ----------------- */
+function seedExecutors(){
+  if(localStorage.getItem(LS_EXEC)) return;
+  const exec = [
+    { id:'u_asha', name:'Asha — Frontend Dev (17)', age:17, skills:['web','html','css','javascript','frontend'], bio:'Builds polished UIs and prototypes' },
+    { id:'u_sahil', name:'Sahil — AI Engineer (21)', age:21, skills:['ai','ml','nlp','vision','python'], bio:'Models, pipelines, and inference' },
+    { id:'u_priya', name:'Priya — EdTech Designer (19)', age:19, skills:['edtech','instructional design','content'], bio:'Designs learning experiences' },
+    { id:'u_ravi', name:'Ravi — Agritech (28)', age:28, skills:['agri','iot','sensors','sustainability'], bio:'Domain expert in farming projects' },
+    { id:'u_meera', name:'Meera — Health Specialist (34)', age:34, skills:['health','public health','data'], bio:'Clinical and public health insights' }
+  ];
+  localStorage.setItem(LS_EXEC, JSON.stringify(exec));
+}
+
+/* ----------------- Storage helpers ----------------- */
+function loadIdeas(){ try{ return JSON.parse(localStorage.getItem(LS_IDEAS) || '[]'); } catch(e){ return []; } }
+function saveIdeas(arr){ localStorage.setItem(LS_IDEAS, JSON.stringify(arr)); }
+function loadExec(){ try{ return JSON.parse(localStorage.getItem(LS_EXEC) || '[]'); } catch(e){ return []; } }
+function saveExec(arr){ localStorage.setItem(LS_EXEC, JSON.stringify(arr)); }
+function loadRequests(){ try{ return JSON.parse(localStorage.getItem(LS_REQUESTS) || '[]'); } catch(e){ return []; } }
+function saveRequests(arr){ localStorage.setItem(LS_REQUESTS, JSON.stringify(arr)); }
+
+/* ----------------- Matching algorithm (explainable) ----------------- */
+/*
+  Steps:
+  1. Tokenize idea text and tags into keywords
+  2. For each executor, count skill matches vs keywords
+  3. Score = skillMatches*3 + tagMatches*2 + recencyBoost - small randomness
+  4. Return top N executors and recommended roles based on matched skills.
+*/
+function normalize(s){
+  return (s||'').toLowerCase().replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ').trim();
+}
+function tokenize(s){
+  return normalize(s).split(' ').filter(Boolean);
+}
+function unique(a){ return Array.from(new Set(a)); }
+
+function matchIdeaToExecutors(idea, top=4){
+  const exec = loadExec();
+  const text = [idea.title, idea.desc, (idea.tags||'')].join(' ');
+  const words = tokenize(text);
+  const tags = (idea.tags||'').split(',').map(t => t.trim().toLowerCase()).filter(Boolean);
+  const scores = exec.map(e => {
+    const skills = (e.skills||[]).map(s=>s.toLowerCase());
+    let matchCount = 0;
+    words.forEach(w=>{ if(skills.includes(w)) matchCount++; });
+    tags.forEach(t=>{ if(skills.includes(t)) matchCount += 1.5; });
+    // also partial matches with substring
+    skills.forEach(skl=> { words.forEach(w=> { if(w.length>3 && skl.includes(w)) matchCount += 0.7; })});
+    // recency and publish flag preference
+    const recencyBoost = 0.1 * Math.min(5, Math.floor((Date.now() - new Date(idea.created||Date.now()))/(1000*60*60*24)));
+    const score = Math.round((matchCount * 10 + recencyBoost + Math.random()*1.2) * 100)/100;
+    return { user: e, score };
+  });
+  scores.sort((a,b)=>b.score - a.score);
+  // map to partner roles suggestions
+  const partners = scores.slice(0, top).map(s => {
+    // derive a role label from skills intersection
+    const common = (s.user.skills || []).filter(sk => tokenize(idea.title + ' ' + idea.desc).includes(sk));
+    const role = common.length ? (common[0].charAt(0).toUpperCase() + common[0].slice(1)) + ' Specialist' : s.user.name.split('—')[1] || 'Partner';
+    return { user: s.user, role: role, why: `Skills: ${s.user.skills.join(', ')}`, score: s.score };
+  });
+  // steps recommended: derive from tags and keywords
+  const steps = [];
+  if(tags.length) steps.push(`Prototype a basic ${tags[0]} proof-of-concept`);
+  else steps.push('Create a small prototype to validate the idea');
+  steps.push('Find 3 mentors or testers and run a pilot');
+  steps.push('Measure impact and iterate');
+  const resources = ['Local community partners', 'Open-source templates & examples', 'Small pilot funding / grants'];
+  const summary = `${idea.title} — ${idea.desc.slice(0,180)}${idea.desc.length>180?'...':''}`;
+  const inclusivity = 'Under-18 creators are welcome; always obtain guardian consent for any external pilot that involves minors.';
+  return { summary, partners, steps, resources, inclusivity };
+}
+
+/* ----------------- UI Rendering ----------------- */
+function renderExecutors(){
+  const list = loadExec();
+  const cont = document.getElementById('executorsList');
+  cont.innerHTML = '';
+  list.forEach(u => {
+    const div = document.createElement('div');
+    div.className = 'match-card';
+    div.style.marginBottom='10px';
+    div.innerHTML = `<div class="executor"><div class="avatar">${esc(u.name.split(' ')[0].charAt(0) || 'X')}</div>
+      <div><strong>${esc(u.name)}</strong><div class="muted tiny">${esc(u.bio)}</div></div></div>`;
+    cont.appendChild(div);
+  });
+}
+
+function renderIdeasList(filterText='', filterMode='all'){
+  const container = document.getElementById('ideasContainer');
+  container.innerHTML = '';
+  let ideas = loadIdeas();
+  if(filterMode === 'trending'){
+    // trending: sort by number of requests (local)
+    const requests = loadRequests();
+    const countMap = {};
+    requests.forEach(r => countMap[r.ideaId] = (countMap[r.ideaId]||0) + 1);
+    ideas.sort((a,b) => (countMap[b.id]||0) - (countMap[a.id]||0));
+  } else {
+    // default: recent first
+    ideas.sort((a,b) => new Date(b.created || 0) - new Date(a.created || 0));
+  }
+  if(filterText) {
+    const f = normalize(filterText);
+    ideas = ideas.filter(i => normalize(i.title + ' ' + i.desc + ' ' + (i.tags||'')).includes(f));
+  }
+  if(ideas.length === 0){
+    container.innerHTML = '<div class="tiny muted">No ideas yet — click "Seed Examples" or post one now.</div>';
+    return;
+  }
+  const ideasGrid = document.createElement('div');
+  ideasGrid.className = 'ideas-list';
+  ideas.forEach(i => {
+    const el = document.createElement('div');
+    el.className = 'idea';
+    const tagsHtml = (i.tags||'').split(',').map(t=>t.trim()).filter(Boolean).map(t=>`<span class="badge">${esc(t)}</span>`).join(' ');
+    const createdAgo = timeAgo(new Date(i.created || Date.now()));
+    el.innerHTML = `<h4>${esc(i.title)}</h4>
+      <div class="meta"><div class="muted">${esc(i.name||'Anonymous')}</div><div class="muted">• ${createdAgo}</div><div style="margin-left:auto" class="score">${i.published ? 'Public' : 'Private'}</div></div>
+      <p class="muted" style="margin-top:8px">${esc(i.desc.length>180? i.desc.slice(0,180)+'...': i.desc)}</p>
+      <div style="margin-top:8px">${tagsHtml}</div>
+      <div class="actions" style="margin-top:10px">
+        <button class="chip" data-action="view" data-id="${i.id}">View</button>
+        <button class="chip" data-action="match" data-id="${i.id}">Find Partners</button>
+        <button class="chip" data-action="partner" data-id="${i.id}">Request to Partner</button>
+      </div>
+      <div class="match-area" id="match_${i.id}" style="margin-top:10px"></div>`;
+    ideasGrid.appendChild(el);
+  });
+  container.appendChild(ideasGrid);
+}
+
+/* ----------------- Helper: timeAgo ----------------- */
+function timeAgo(date){
+  const secs = Math.floor((Date.now() - date.getTime())/1000);
+  if(secs < 60) return `${secs}s ago`;
+  const mins = Math.floor(secs/60);
+  if(mins < 60) return `${mins}m ago`;
+  const hrs = Math.floor(mins/60);
+  if(hrs < 24) return `${hrs}h ago`;
+  const days = Math.floor(hrs/24);
+  return `${days}d ago`;
+}
+
+/* ----------------- Interaction handlers ----------------- */
+function showQuickResult(obj){
+  const out = $('#quickResult');
+  out.innerHTML = '';
+  const html = renderMatchHTML(obj);
+  out.innerHTML = html;
+}
+
+function renderMatchHTML(res){
+  let html = `<div class="match-card"><strong>Summary</strong><div class="muted tiny" style="margin-top:6px">${esc(res.summary)}</div>`;
+  html += `<div style="margin-top:10px"><strong>Suggested partners</strong></div>`;
+  if(res.partners && res.partners.length){
+    res.partners.forEach(p => {
+      html += `<div class="match-card" style="margin-top:8px"><div style="display:flex;gap:12px;align-items:center">
+         <div class="avatar">${esc(p.user.name.split(' ')[0].charAt(0) || 'X')}</div>
+         <div><strong>${esc(p.role)}</strong><div class="muted tiny">${esc(p.why)}</div></div>
+         <div style="margin-left:auto" class="tiny muted">score: ${p.score}</div>
+         </div>
+         <div style="margin-top:8px"><button class="request-btn" data-user="${esc(p.user.id)}" data-idea="${esc(p.user.id)}">Request to Partner</button></div>
+       </div>`;
+    });
+  } else {
+    html += '<div class="muted tiny">No partner matches found.</div>';
+  }
+  html += `<div style="margin-top:8px"><strong>3-step plan</strong><ol class="muted tiny">` + (res.steps||[]).map(s => `<li>${esc(s)}</li>`).join('') + `</ol></div>`;
+  html += `<div style="margin-top:8px"><strong>Resources</strong><ul class="muted tiny">${(res.resources||[]).map(r => `<li>${esc(r)}</li>`).join('')}</ul></div>`;
+  html += `<div style="margin-top:8px"><strong>Inclusivity</strong><div class="muted tiny">${esc(res.inclusivity)}</div></div></div>`;
+  return html;
+}
+
+/* ----------------- Event wiring ----------------- */
+document.addEventListener('click', function(e){
+  const btn = e.target.closest('[data-action]');
+  if(btn){
+    const id = btn.dataset.id;
+    const action = btn.dataset.action;
+    if(action === 'view') {
+      openViewModal(id);
+    } else if(action === 'match'){
+      runMatchForIdea(id);
+    } else if(action === 'partner'){
+      requestToPartnerFlow(id);
+    }
+  }
+});
+
+/* ----------------- Match runner ----------------- */
+function runMatchForIdea(id){
+  const idea = loadIdeas().find(i => i.id === id);
+  if(!idea) return;
+  const match = matchIdeaToExecutors(idea, 4);
+  const area = document.getElementById('match_' + id);
+  area.innerHTML = renderMatchHTML(match);
+  // Save a lightweight analytics event (requests)
+  const reqs = loadRequests();
+  reqs.unshift({id: uid('evt'), type:'match', ideaId: id, ts: new Date().toISOString()});
+  saveRequests(reqs);
+}
+
+/* ----------------- Request to partner flow ----------------- */
+function requestToPartnerFlow(ideaId){
+  // open a prompt to get user name & skill and optionally age
+  const idea = loadIdeas().find(i=>i.id===ideaId);
+  if(!idea) return alert('Idea not found');
+  const name = prompt('Your name (or nickname) — you will request to partner on: ' + idea.title);
+  if(!name) return;
+  const ageStr = prompt('Your age (numbers) — enter if you are under 18 so guardian notice is shown (optional)');
+  const age = ageStr ? parseInt(ageStr) : null;
+  // Store request
+  const requests = loadRequests();
+  requests.unshift({ id: uid('req'), ideaId, requester: name, age: age, created: new Date().toISOString(), status:'requested' });
+  saveRequests(requests);
+  alert('Partner request saved (demo). If you are under 18, please ensure guardian consent before any field visits or pilots.');
+  // mark event
+  renderIdeasList($('#searchBox').value, currentFilterMode);
+}
+
+/* ----------------- Modal / view idea ----------------- */
+function openViewModal(id){
+  const idea = loadIdeas().find(i=>i.id===id);
+  if(!idea) return;
+  // Show simple overlay modal using window.confirm-ish UI
+  const partners = matchIdeaToExecutors(idea, 4);
+  let txt = `Idea: ${idea.title}\nBy: ${idea.name || 'Anonymous'}\n\n${idea.desc}\n\nSuggested partners:\n`;
+  partners.partners.forEach((p, idx) => txt += `${idx+1}. ${p.role} — ${p.why} (score: ${p.score})\n`);
+  txt += `\n3-step: \n` + partners.steps.map((s,i)=>`${i+1}. ${s}`).join('\n');
+  if(confirm(txt + '\n\nOpen match panel?')) {
+    runMatchForIdea(id);
+    document.getElementById('match_' + id).scrollIntoView({behavior:'smooth', block:'center'});
+  }
+}
+
+/* ----------------- Quick match button ----------------- */
+$('#quickMatchBtn').addEventListener('click', function(){
+  const q = $('#quickIdea').value.trim();
+  if(!q) return alert('Type a quick idea');
+  // create temp idea object
+  const idea = { id: 'tmp_' + Date.now(), title: q.slice(0,60), desc: q, tags: '', created: new Date().toISOString() };
+  const res = matchIdeaToExecutors(idea, 4);
+  showQuickResult(res);
+});
+
+/* ----------------- Executor apply ----------------- */
+$('#execApply').addEventListener('click', function(){
+  const name = $('#execName').value.trim() || 'You';
+  const skills = $('#execSkills').value.split(',').map(s=>s.trim().toLowerCase()).filter(Boolean);
+  if(skills.length===0) return alert('Enter at least one skill');
+  // find ideas matched to these skills
+  const ideas = loadIdeas();
+  const matches = ideas.map(i => {
+    // score by keyword overlap
+    const allText = tokenizeForMatch(i.title + ' ' + i.desc + ' ' + (i.tags||'')).join(' ');
+    let score = 0;
+    skills.forEach(s => { if(allText.includes(s)) score += 10; });
+    return { idea: i, score };
+  }).filter(x => x.score>0).sort((a,b)=>b.score-a.score);
+  const out = $('#execMatches');
+  out.innerHTML = '';
+  if(matches.length===0) { out.innerHTML = '<div class="muted tiny">No immediate matches — try broader skills or seed ideas.</div>'; return; }
+  matches.forEach(m => {
+    const d = document.createElement('div');
+    d.className = 'idea';
+    d.innerHTML = `<h4>${esc(m.idea.title)}</h4><div class="muted tiny">${esc(m.idea.desc.slice(0,140))}</div>
+      <div style="margin-top:8px" class="actions"><button class="chip" data-action="view" data-id="${m.idea.id}">View</button>
+      <button class="chip" data-action="partner" data-id="${m.idea.id}">Request to Partner</button></div>`;
+    out.appendChild(d);
+  });
+});
+
+/* ----------------- Posting an idea ----------------- */
+$('#ideaForm').addEventListener('submit', function(e){
+  e.preventDefault();
+  const name = $('#inputName').value.trim() || 'Anonymous';
+  const age = $('#inputAge').value.trim();
+  const title = $('#inputTitle').value.trim();
+  const tags = $('#inputTags').value.trim();
+  const desc = $('#inputDesc').value.trim();
+  if(!title || !desc) return alert('Add title and description');
+  const idea = { id: uid('idea'), name, age, title, tags, desc, published: !!$('#publishNow').checked, created: new Date().toISOString() };
+  const arr = loadIdeas();
+  arr.unshift(idea);
+  saveIdeas(arr);
+  // auto-run match for the new idea to show result
+  setTimeout(()=> {
+    renderIdeasList($('#searchBox').value, currentFilterMode);
+    runMatchForIdea(idea.id);
+    document.getElementById('match_' + idea.id).scrollIntoView({behavior:'smooth', block:'center'});
+  }, 200);
+  $('#inputTitle').value=''; $('#inputDesc').value=''; $('#inputTags').value=''; $('#inputName').value=''; $('#inputAge').value=''; $('#publishNow').checked=false;
+});
+
+/* ----------------- Seed examples ----------------- */
+$('#seedExamples').addEventListener('click', function(){
+  const examples = [
+    { id: uid('idea'), name:'Student', age:'17', title:'Voice tutor for feature phones', tags:'edtech,voice,low-bandwidth', desc:'Phone-first voice tutor that teaches reading with local language prompts and low data usage.', published:true, created: new Date().toISOString() },
+    { id: uid('idea'), name:'Community', age:'N/A', title:'Waste-to-bricks', tags:'environment,manufacturing,plastic', desc:'A process to convert plastic waste into low-cost building bricks suitable for rural construction.', published:true, created: new Date().toISOString() },
+    { id: uid('idea'), name:'Pilot', age:'N/A', title:'Solar micro-labs for schools', tags:'energy,education,solar', desc:'Portable solar micro-labs to teach electronics and coding in off-grid schools.', published:true, created: new Date().toISOString() }
+  ];
+  const all = loadIdeas();
+  saveIdeas([...examples, ...all]);
+  renderIdeasList($('#searchBox').value, currentFilterMode);
+  alert('Seed examples added. Use "Find Partners" on any card to view matches.');
+});
+
+/* ----------------- Filter & search ----------------- */
+let currentFilterMode = 'all';
+$('#filterAll').addEventListener('click', ()=> { currentFilterMode='all'; renderIdeasList($('#searchBox').value, currentFilterMode); setActiveFilter('filterAll'); });
+$('#filterTop').addEventListener('click', ()=> { currentFilterMode='trending'; renderIdeasList($('#searchBox').value, currentFilterMode); setActiveFilter('filterTop'); });
+function setActiveFilter(id){
+  ['filterAll','filterTop'].forEach(i => { const el = $('#'+i); if(el) el.classList.remove('active'); });
+  const el = $('#'+id); if(el) el.classList.add('active');
+}
+$('#searchBox').addEventListener('input', ()=> renderIdeasList($('#searchBox').value, currentFilterMode));
+
+/* ----------------- Small helpers & tokenizers ----------------- */
+function tokenizeForMatch(text){
+  return unique(normalize(text).split(' ').filter(t => t.length>2));
+}
+
+/* ----------------- Initial UI boot ----------------- */
+seedExecutors();
+if(!localStorage.getItem(LS_IDEAS)) {
+  // initial empty or seed lightly
+  saveIdeas([]);
+}
+renderExecutors();
+renderIdeasList('', 'all');
+setActiveFilter('filterAll');
+
+/* ----------------- Small path drawing on scroll ----------------- */
+(function pathDraw(){
+  const path = document.getElementById('path');
+  const marker = document.getElementById('marker');
+  if(!path) return;
+  const L = path.getTotalLength();
+  path.style.strokeDasharray = L;
+  path.style.strokeDashoffset = L;
+  function update(){
+    const rect = document.getElementById('how').getBoundingClientRect();
+    const winH = window.innerHeight;
+    const p = Math.min(1, Math.max(0, 1 - (rect.bottom - 0) / (rect.height + winH)));
+    path.style.strokeDashoffset = L * (1 - p);
+    try{ const pt = path.getPointAtLength(L * p); marker.setAttribute('cx', pt.x); marker.setAttribute('cy', pt.y); } catch(e){}
+  }
+  window.addEventListener('scroll', update, {passive:true});
+  update();
+})();
+
+/* ----------------- Simple scroll reveal ----------------- */
+const reveals = document.querySelectorAll('.reveal');
+const io = new IntersectionObserver(entries => {
+  entries.forEach(en => {
+    if(en.isIntersecting) en.target.classList.add('visible');
+  });
+}, {threshold: 0.12});
+reveals.forEach(r => io.observe(r));
+
+/* ----------------- Tiny helper: normalize used above ----------------- */
+function normalize(s){ return (s||'').toLowerCase().replace(/[^a-z0-9\s,]/g,' ').replace(/\s+/g,' ').trim(); }
+
+/* ----------------- On load hook: scroll buttons ----------------- */
+$('#btnPost').addEventListener('click', ()=> document.getElementById('submit').scrollIntoView({behavior:'smooth'}));
+$('#btnExplore').addEventListener('click', ()=> document.getElementById('ideasContainer').scrollIntoView({behavior:'smooth'}));
+
+/* ----------------- Accessibility: keyboard seed with S key for convenience (demo) ----------------- */
+document.addEventListener('keydown', (e)=> { if(e.key.toLowerCase() === 's' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); $('#seedExamples').click(); alert('Seed examples added (shortcut ctrl/cmd+S)'); } });
+
+/* ----------------- End of script ----------------- */
+</script>
+</body>
+</html>

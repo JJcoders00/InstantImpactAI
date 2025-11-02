@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instant Impact AI 🌏</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+    * {margin:0; padding:0; box-sizing:border-box; font-family:'Poppins',sans-serif;}
+    body {
+      background: linear-gradient(180deg, #FF9933, #FFFFFF, #138808);
+      min-height: 100vh;
+      color: #222;
+      overflow-x: hidden;
+    }
+    header {
+      text-align:center;
+      padding:40px 20px;
+      font-size:2.2em;
+      font-weight:600;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+    }
+    main {
+      width: 90%;
+      max-width: 900px;
+      margin: 20px auto;
+      background: white;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      animation: fadeIn 1.5s ease;
+    }
+    h2 {color:#138808; margin-bottom:10px;}
+    form input, form textarea {
+      width:100%;
+      padding:10px;
+      margin:8px 0;
+      border:1px solid #ccc;
+      border-radius:8px;
+    }
+    button {
+      background: linear-gradient(90deg, #FF9933, #138808);
+      color:white; border:none; padding:10px 20px; border-radius:8px;
+      cursor:pointer; font-size:1em;
+      transition: transform 0.2s;
+    }
+    button:hover {transform: scale(1.05);}
+    .idea-card {
+      background: #f8f8f8;
+      padding:15px;
+      border-radius:10px;
+      margin-top:15px;
+      border-left: 5px solid #FF9933;
+      animation: slideUp 0.8s ease;
+    }
+    .idea-card h3 {color:#FF9933;}
+    @keyframes fadeIn {from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+    @keyframes slideUp {from{opacity:0;transform:translateY(40px);}to{opacity:1;transform:translateY(0);}}
+    footer {
+      text-align:center;
+      padding:30px;
+      color:white;
+      font-weight:500;
+      background: rgba(0,0,0,0.2);
+      margin-top:50px;
+    }
+  </style>
+</head>
+<body>
+
+<header>🌏 Instant Impact AI — Connect Ideas to Action</header>
+
+<main>
+  <section id="post">
+    <h2>🚀 Post Your Idea</h2>
+    <form id="ideaForm">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="number" id="age" placeholder="Your Age" required>
+      <textarea id="idea" placeholder="Describe your idea..." rows="4" required></textarea>
+      <button type="submit">Submit Idea</button>
+    </form>
+  </section>
+
+  <hr style="margin:30px 0;">
+
+  <section id="explore">
+    <h2>🌟 Explore Ideas</h2>
+    <div id="ideaList"></div>
+  </section>
+</main>
+
+<footer>
+  Made with ❤️ in India by JJ Coders — Empowering Young Innovators 🇮🇳
+</footer>
+
+<script>
+const form = document.getElementById('ideaForm');
+const ideaList = document.getElementById('ideaList');
+let ideas = JSON.parse(localStorage.getItem('ideas')) || [];
+
+function renderIdeas() {
+  ideaList.innerHTML = "";
+  ideas.forEach((i, idx) => {
+    const div = document.createElement('div');
+    div.className = "idea-card";
+    div.innerHTML = `<h3>${i.idea}</h3>
+                     <p><b>By:</b> ${i.name} (${i.age})</p>
+                     <p><i>Match Score: ${Math.floor(Math.random()*100)}%</i></p>`;
+    ideaList.appendChild(div);
+  });
+}
+renderIdeas();
+
+form.addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('name').value;
+  const age = document.getElementById('age').value;
+  const idea = document.getElementById('idea').value;
+  ideas.push({name, age, idea});
+  localStorage.setItem('ideas', JSON.stringify(ideas));
+  form.reset();
+  renderIdeas();
+  alert("✅ Idea posted successfully! II AI will now match it to potential partners.");
+});
+</script>
+
+</body>
+</html>
